@@ -1,19 +1,23 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
+<style media="screen">
+	img {
+		max-width: 200px;
+		max-height: 200PX;
+	}
+  
+  <h1> <%= @article.title %></h1>
+ <p>
 
-<p>
-  <strong>Body:</strong>
-  <%= @article.body %>
-</p>
+ 
+  <%=  @article.image_url,align:'right' %>
 
-<p>
-  <strong>Image url:</strong>
-  <%= @article.image_url %>
-</p>
+   <%= @article.body %>
 
-<%= link_to 'Edit', edit_article_path(@article) %> |
+
+</p>
+<% if user_signed_in? %>
+<%= link_to 'Edit', edit_article_path(@article) %> 
+<% end %>
+
 <%= link_to 'Back', articles_path %>
