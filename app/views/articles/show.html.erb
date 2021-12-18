@@ -1,23 +1,21 @@
-<p id="notice"><%= notice %></p>
+
 
 <style media="screen">
 	img {
-		max-width: 200px;
-		max-height: 200PX;
+		max-width: 300px;
+		max-height: 300PX;
 	}
-  
-  <h1> <%= @article.title %></h1>
+</style>
+   <p id="notice"><%= notice %></p>
+   <h1> <% @article.title %></h1>
  <p>
 
- 
-  <%=  @article.image_url,align:'right' %>
-
-   <%= @article.body %>
-
-
+       <%= @article.body %>
+       <%= image_tag @article.image_url, align: 'right' %> <br>
 </p>
-<% if user_signed_in? %>
+
 <%= link_to 'Edit', edit_article_path(@article) %> 
-<% end %>
+<%= link_to 'Delete', article_path(@article), method: :delete, data: { confirm: "are you sure?" } %>
+
 
 <%= link_to 'Back', articles_path %>
